@@ -14,6 +14,7 @@ const sendResponse = (
 };
 
 const handleGetRequest = (socket, path, headers) => {
+  let initialPathString = path.slice(1).replace(/_/g, ' ');
   let pathString = path.slice(1);
 
   // only rhyme on the second word
@@ -44,8 +45,31 @@ const handleGetRequest = (socket, path, headers) => {
 
   let completeSentence = verbs[getRandomInt(0, verbs.length-1)] + " " + article + " " + randomRhyme;
 
+  const htmlResponse = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>${initialPathString} ${completeSentence}</title>
+      <style>
+        p {
+          font-family: sans-serif;
+          font-weight: bold;
+          font-size: 14vw;
+          text-align: center;
+          text-transform: uppercase;
+          margin-top: 5vw;
+        }
+      </style>
+    </head>
+    <body>
+      <p>${completeSentence}</p>
+    </body>
+    </html>
+  `;
 
-  sendResponse(socket, { body: completeSentence });
+  sendResponse(socket, { contentType: "text/html", body: htmlResponse });
 
   console.log("Rita: "+String(RiTa.rhymesSync(pathString)));
   console.log("rhyme: "+String(rhymedWords));
