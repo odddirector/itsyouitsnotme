@@ -1,4 +1,6 @@
 const net = require("net");
+let { RiTa } = require('rita'); /* rednoise.org/rita */
+let rhymes = require('rhymes'); /* npmjs.com/package/rhymes */
 
 const sendResponse = (
   socket,
@@ -11,7 +13,20 @@ const sendResponse = (
 };
 
 const handleGetRequest = (socket, path, headers) => {
-  sendResponse(socket, { body: path });
+  let pathString = path.slice(1);
+  let rhymeObjects = rhymes(pathString); //returns an array of objects
+  let rhymedWords = [];
+  for (let index = 0; index < rhymeObjects.length; index++) {
+    rhymedWords.push(rhymeObjects[index].word);
+  }
+  if(String(rhymedWords).length != 0) {
+    sendResponse(socket, { body: String(rhymedWords) });
+  } else {
+    sendResponse(socket, { body: String(RiTa.rhymesSync(pathString)) });
+  }
+  console.log("Rita: "+String(RiTa.rhymesSync(pathString)));
+  console.log("rhyme: "+String(rhymedWords));
+  
 };
 
 const server = net.createServer((socket) => {
