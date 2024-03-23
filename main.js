@@ -1,7 +1,12 @@
 const net = require("net");
-let { RiTa } = require('rita'); /* rednoise.org/rita */
-let rhymes = require('rhymes'); /* npmjs.com/package/rhymes */
-const verbs = require('./verbs.js');
+
+const dotenv = require("dotenv");
+dotenv.config();
+
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+
+// Access your API key as an environment variable (see "Set up your API key" above)
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API);
 
 const sendResponse = (
   socket,
@@ -13,68 +18,20 @@ const sendResponse = (
   socket.write(`HTTP/1.1 ${status} ${statusText}\r\n${headers}${body}`);
 };
 
-const handleGetRequest = (socket, path, headers) => {
+async function handleGetRequestAI(socket, path, headers) {
   let initialPathString = path.slice(1).replace(/_/g, ' ');
-  let pathString = path.slice(1);
 
-  // only rhyme on the second word
-  if(pathString.includes("_")) {
-    pathString = pathString.split("_")[1];
-  } else if (pathString.includes("-")) {
-    pathString = pathString.split("-")[1];
-  }
+  const model = genAI.getGenerativeModel({ model: "gemini-pro"});
 
-  let rhymeObjects = rhymes(pathString); //returns an array of objects
-  let rhymedWords = [];
-  let randomRhyme;
-  let article = "a";
-  for (let index = 0; index < rhymeObjects.length; index++) {
-    rhymedWords.push(rhymeObjects[index].word);
-  }
-  if(String(rhymedWords).length != 0) {
-    randomRhyme = rhymedWords[getRandomInt(0, rhymedWords.length-1)];
-  } else {
-    randomRhyme = RiTa.rhymesSync(pathString)[getRandomInt(0, rhymedWords.length-1)];
-  }
+  // create svg illustrations on the page 
+  const prompt = "generate the code of an html page about "+initialPathString+". Write absolutely crazy insane mental css with vivid colors animations and transitions and write all these css styles inline. Rewrite all the css to make it even crazier, also all inline. Make all links on the site work and link to relevant urls within the site (all links MUST only be in the following format: '/link_name_site_name' - no subcategories or .html extension ).  Don't use any images, generate svg illustrations instead.";
 
-  const isFirstCharacterVowel = /^[aeiou]/i.test(randomRhyme);
+  const result = await model.generateContent(prompt);
+  const response = await result.response;
+  const text = response.text().replace(/```html/g, '').replace(/```/g, '');
 
-  if(isFirstCharacterVowel) {
-    article = "an";
-  }
-
-  let completeSentence = verbs[getRandomInt(0, verbs.length-1)] + " " + article + " " + randomRhyme;
-
-  const htmlResponse = `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>${initialPathString} ${completeSentence}</title>
-      <style>
-        p {
-          font-family: sans-serif;
-          font-weight: bold;
-          font-size: 14vw;
-          text-align: center;
-          text-transform: uppercase;
-          margin-top: 5vw;
-        }
-      </style>
-    </head>
-    <body>
-      <p>${completeSentence}</p>
-    </body>
-    </html>
-  `;
-
-  sendResponse(socket, { contentType: "text/html", body: htmlResponse });
-
-  console.log("Rita: "+String(RiTa.rhymesSync(pathString)));
-  console.log("rhyme: "+String(rhymedWords));
-  
-};
+  sendResponse(socket, { contentType: "text/html", body: text });
+}
 
 const server = net.createServer((socket) => {
   socket.on("data", (data) => {
@@ -83,7 +40,7 @@ const server = net.createServer((socket) => {
 
     switch (httpMethod) {
       case "GET": {
-        handleGetRequest(socket, path, headers);
+        handleGetRequestAI(socket, path, headers);
         break;
       }
     }
@@ -94,10 +51,5 @@ const server = net.createServer((socket) => {
   });
 });
 
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
 server.listen(4221, "localhost");
