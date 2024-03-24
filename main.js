@@ -64,7 +64,7 @@ const handleGetRequest = (socket, path, headers) => {
       </style>
     </head>
     <body>
-      <p>${completeSentence}</p>
+      <p>${pathString},<br>${completeSentence}</p>
     </body>
     </html>
   `;
