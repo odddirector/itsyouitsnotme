@@ -1,0 +1,40 @@
+// these are just versions of prompts you can try in main.js
+
+function pagesPrompts(subject) {
+  return {
+    p_one: `
+        generate the code of an html page about ${subject}. 
+        Write absolutely crazy insane mental css 
+        with vivid colors animations and transitions 
+        and write all these css styles inline. 
+        Rewrite all the css to make it even crazier, also all inline. 
+        Make all links on the site work and link to relevant urls 
+        within the site (all links MUST only be in the following format: 
+        '/link_name_site_name' - no subcategories or .html extension ).  
+        Don't use any images, generate svg illustrations instead.`,
+
+    p_two: `
+        generate the code of an html page about ${subject}. 
+        Write absolutely crazy insane mental css 
+        with vivid colors animations and transitions 
+        and write all these css styles inline. 
+        Rewrite all the css to make it even crazier, also all inline. 
+        Create a menu with weird unexpected words and make all links in the menu work and link to relevant urls 
+        within the site (all links MUST only be in the following format: 
+        '/link_name_site_name' - no subcategories or .html extension ).  
+        Don't use any images, generate svg illustrations instead.`,
+
+    p_three: /* random google fonts */  `
+        generate the code of an html page about ${subject}. 
+        Write absolutely crazy insane mental css 
+        with vivid colors animations and transitions 
+        and write all these css styles inline. 
+        Rewrite all the css to make it even crazier, also all inline. 
+        Use a random google font. 
+        The page should contain a big menu with weird unexpected words in it and all links MUST only be in the following format: 
+        '/link_name', where 'link_name' is replaced with an unexpected word. 
+        Don't use any images, generate svg illustrations instead.`,
+  };
+}
+
+module.exports = pagesPrompts;
