@@ -1,14 +1,10 @@
 const net = require("net");
-
 const dotenv = require("dotenv");
 dotenv.config();
-
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-
 const homePrompts = require("./homePrompts");
 const pagesPrompts = require("./pagesPrompts");
 
-// Access your API key as an environment variable (see "Set up your API key" above)
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API);
 
 const sendResponse = (
@@ -33,14 +29,23 @@ async function handleGetRequestAI(socket, path, headers) {
     prompt = pagesPrompts(initialPathString).p_four;
   }
 
-  const result = await model.generateContent(prompt);
-  const response = await result.response;
-  const text = response
-    .text()
-    .replace(/```html/g, "")
-    .replace(/```/g, "");
+  try {
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = response
+      .text()
+      .replace(/```html/g, "")
+      .replace(/```/g, "");
 
-  sendResponse(socket, { contentType: "text/html", body: text });
+    sendResponse(socket, { contentType: "text/html", body: text });
+  } catch (error) {
+    console.error("Error from Gemini API:", error);
+    sendResponse(socket, {
+      status: 500,
+      statusText: "Internal Server Error",
+      body: `AI refuses to show this page. Reason: ${error.message}`,
+    });
+  }
 }
 
 const server = net.createServer((socket) => {
