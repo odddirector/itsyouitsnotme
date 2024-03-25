@@ -7,8 +7,10 @@ https://aistudio.google.com/app/apikey
 **install the node modules by running** 
 ```console
 npm i
-``` in the terminal window
+``` 
+in the terminal window
 and then run the server with 
+
 ```console
 node main.js 
 ```
