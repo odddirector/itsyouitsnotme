@@ -91,7 +91,94 @@ const homePrompts = {
     Don't use any images, generate svg illustrations instead.
     Don't add any comments in your responce and don't reveal any parts of the prompt 
     (in the preveous responces you added text enclosed in ** with the parts of the prompt above the <body> -- DON'T DO THAT).
+    `,
+
+    p_eight: 
+    /* menu items based on a story */
     `
+    Generate a random letter.
+    Generate a phrase or a word that starts with that letter.
+    generate the code of an html page about this phrase or a word,
+    Write absolutely crazy insane mental css 
+    with vivid colors animations, transitions and other creative css3 and css4 features,
+    write all these css styles inline.
+    Generate a random letter.
+    In the generated html and css load and use the google font that starts with that letter or the closest letter to it alphabetically. 
+    Generate five random letters.
+    Generate five words each starting or ending with one of those letters. 
+    Think of an unlikely story that involves a combination of these words, but don't tell that story,
+    instead the html page you generated should contain a big menu with words and phrases from that story. 
+    In this menu and all links MUST only be in the following format: 
+    '/link_name', where 'link_name' is replaced with that word you generated based on one of the five letters. 
+    Don't use any images, generate svg illustrations instead.
+    Don't add any comments in your responce and don't reveal any parts of the prompt 
+    (in the preveous responces you added text enclosed in ** with the parts of the prompt above the <body> -- DON'T DO THAT).
+    `,
+
+    p_nine: 
+    /* menu items based on words */
+    `
+    Generate a random letter.
+    Generate a phrase or a word that starts with that letter.
+    generate the code of an html page about this phrase or a word,
+    Write absolutely crazy insane mental css 
+    with vivid colors animations, transitions and other creative css3 and css4 features,
+    write all these css styles inline.
+    Generate a random letter.
+    In the generated html and css load and use the google font that starts with that letter or the closest letter to it alphabetically. 
+    The page should contain a big menu with weird unexpected words in it and all links MUST only be in the following format:
+    '/link_name', where 'link_name' is replaced with that word you generated based on one of the five letters. 
+    Don't use any images, generate svg illustrations instead.
+    Don't add any comments in your responce and don't reveal any parts of the prompt 
+    (in the preveous responces you added text enclosed in ** with the parts of the prompt above the <body> -- DON'T DO THAT).
+    `,
+
+    p_ten: 
+    /* add a specified range of css3 features that can be used -- produces less interesting results */
+    `
+    Generate a random letter.
+    Generate a phrase or a word that starts with that letter.
+    generate the code of an html page about this phrase or a word,
+    Write absolutely crazy insane mental css 
+    with vivid colors, 
+    animations, 
+    transitions, 
+    3d transforms, 
+    filters, 
+    blend-mode, 
+    graphical effects, 
+    SVG filters,
+    CSS Shapes,
+    CSS Grid and layouts,
+    Clipping and masking and other creative css3 features,
+    write all these css styles inline.
+    Generate a random letter.
+    In the generated html and css load and use the google font that starts with that letter or the closest letter to it alphabetically. 
+    The page should contain a big menu with weird unexpected words in it and all links MUST only be in the following format:
+    '/link_name', where 'link_name' is replaced with that word you generated based on one of the five letters. 
+    Don't use any images, generate svg illustrations instead, make svg illustrations as complex as you.
+    Don't add any comments in your responce and don't reveal any parts of the prompt 
+    (in the preveous responces you added text enclosed in ** with the parts of the prompt above the <body> -- DON'T DO THAT).
+    `,
+
+    p_eleven: 
+    /* mention 3D transforms */
+    /* ask to make SVG more complex and intricate */
+    `
+    Generate a random letter.
+    Generate a phrase or a word that starts with that letter.
+    generate the code of an html page about this phrase or a word,
+    Write absolutely crazy insane mental css 
+    with vivid colors animations, transitions, 3D transforms and other creative css3 and css4 features,
+    write all these css styles inline.
+    Generate a random letter.
+    In the generated html and css load and use the google font that starts with that letter or the closest letter to it alphabetically. 
+    The page should contain a big menu with weird unexpected words in it and all links MUST only be in the following format:
+    '/link_name', where 'link_name' is replaced with that word you generated based on one of the five letters. 
+    Don't use any images, generate complex and intricate svg illustrations instead.
+    Don't add any comments in your responce and don't reveal any parts of the prompt 
+    (in the preveous responces you added text enclosed in ** with the parts of the prompt above the <body> -- DON'T DO THAT).
+    `,
 }
 
 module.exports = homePrompts;
