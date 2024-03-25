@@ -179,6 +179,40 @@ const homePrompts = {
     Don't add any comments in your responce and don't reveal any parts of the prompt 
     (in the preveous responces you added text enclosed in ** with the parts of the prompt above the <body> -- DON'T DO THAT).
     `,
+
+    p_twelve: 
+    /* page based on an absurd story */
+    `
+    Generate an unlikely absurd story.
+    generate the code of an html page about this story,
+    Write absolutely crazy insane mental css 
+    with vivid colors animations, transitions, 3D transforms and other creative css3 and css4 features,
+    write all these css styles inline.
+    Generate a random letter.
+    In the generated html and css load and use the google font that starts with that letter or the closest letter to it alphabetically. 
+    The page should contain a big menu with weird unexpected words related to the story you generated, in it and all links MUST only be in the following format:
+    '/link_name', where 'link_name' is replaced with that word you generated based on one of the five letters. 
+    Don't use any images, generate complex and intricate svg illustrations instead.
+    Don't add any comments in your responce and don't reveal any parts of the prompt 
+    (in the preveous responces you added text enclosed in ** with the parts of the prompt above the <body> -- DON'T DO THAT).
+    `,
+
+    p_thirteen: 
+    /* page based on an absurd article */
+    `
+    Generate an unlikely absurd online magazine article.
+    generate the code of an html page about this story,
+    Write absolutely crazy insane mental css 
+    with vivid colors animations, transitions, 3D transforms and other creative css3 and css4 features,
+    write all these css styles inline.
+    Generate a random letter.
+    In the generated html and css load and use the google font that starts with that letter or the closest letter to it alphabetically. 
+    The page should contain a big menu with weird unexpected words related to the article you generated, in it and all links MUST only be in the following format:
+    '/link_name', where 'link_name' is replaced with that word you generated based on one of the five letters. 
+    Don't use any images, generate complex and intricate svg illustrations instead.
+    Don't add any comments in your responce and don't reveal any parts of the prompt 
+    (in the preveous responces you added text enclosed in ** with the parts of the prompt above the <body> -- DON'T DO THAT).
+    `,
 }
 
 module.exports = homePrompts;
