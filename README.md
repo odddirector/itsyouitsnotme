@@ -1,7 +1,7 @@
 ## An infinite website run and designed by AI.
 https://www.youtube.com/@odddirector 
 
-**Get an AI api key from here **
+**Get an AI api key from here**
 https://aistudio.google.com/app/apikey 
 
 **install the node modules by running** 
