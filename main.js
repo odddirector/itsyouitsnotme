@@ -28,9 +28,9 @@ async function handleGetRequestAI(socket, path, headers) {
   let prompt;
 
   if (path == "/") {
-    prompt = homePrompts.p_five;
+    prompt = homePrompts.p_six;
   } else {
-    prompt = pagesPrompts(initialPathString).p_three;
+    prompt = pagesPrompts(initialPathString).p_four;
   }
 
   const result = await model.generateContent(prompt);

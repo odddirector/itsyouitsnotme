@@ -24,7 +24,7 @@ function pagesPrompts(subject) {
         '/link_name_site_name' - no subcategories or .html extension ).  
         Don't use any images, generate svg illustrations instead.`,
 
-    p_three: /* random google fonts */  `
+    p_three: /* random google fonts */ `
         generate the code of an html page about ${subject}. 
         Write absolutely crazy insane mental css 
         with vivid colors animations and transitions 
@@ -32,6 +32,23 @@ function pagesPrompts(subject) {
         Rewrite all the css to make it even crazier, also all inline. 
         Use a random google font. 
         The page should contain a big menu with weird unexpected words in it and all links MUST only be in the following format: 
+        '/link_name', where 'link_name' is replaced with an unexpected word. 
+        Don't use any images, generate svg illustrations instead.`,
+
+    p_four:
+      /* random google fonts based on a randomly generated letter */
+      /* phrases in menu  */
+      /* css prompt like on homepage  */
+      `
+        generate the code of an html page about ${subject}. 
+        Write absolutely crazy insane mental css 
+        Write absolutely crazy insane mental css 
+        with vivid colors animations, transitions and other creative css3 and css4 features,
+        and write all these css styles inline. 
+        Rewrite all the css to make it even crazier, also all inline. 
+        Generate a random letter.
+        In the generated html and css load and use the google font that starts with that letter or the closest letter to it alphabetically. 
+        The page should contain a big menu with weird unexpected words or phrases in it and all links MUST only be in the following format: 
         '/link_name', where 'link_name' is replaced with an unexpected word. 
         Don't use any images, generate svg illustrations instead.`,
   };

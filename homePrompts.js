@@ -56,6 +56,22 @@ const homePrompts = {
     The page should contain a big menu with weird unexpected words in it and all links MUST only be in the following format: 
     '/link_name', where 'link_name' is replaced with an unexpected word. 
     Don't use any images, generate svg illustrations instead.
+    `,
+
+    p_six: 
+    /* random google fonts based on a randomly generated letter */ 
+    /* more than two random words  */
+    `
+    Generate up to five random words.
+    generate the code of an html page about a combination of these words,
+    Write absolutely crazy insane mental css 
+    with vivid colors animations, transitions and other creative css3 and css4 features,
+    write all these css styles inline.
+    Generate a random letter.
+    In the generated html and css load and use the google font that starts with that letter or the closest letter to it alphabetically. 
+    The page should contain a big menu with weird unexpected words in it and all links MUST only be in the following format: 
+    '/link_name', where 'link_name' is replaced with an unexpected word. 
+    Don't use any images, generate svg illustrations instead.
     `
 }
 
