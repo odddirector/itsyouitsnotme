@@ -72,6 +72,25 @@ const homePrompts = {
     The page should contain a big menu with weird unexpected words in it and all links MUST only be in the following format: 
     '/link_name', where 'link_name' is replaced with an unexpected word. 
     Don't use any images, generate svg illustrations instead.
+    `,
+
+    p_seven: 
+    /* a page theme based on a random letter */
+    /* ask not to add ** and comments to the page like in other prompts */
+    `
+    Generate a random letter.
+    Generate a phrase or a word that starts with that letter.
+    generate the code of an html page about this phrase or a word,
+    Write absolutely crazy insane mental css 
+    with vivid colors animations, transitions and other creative css3 and css4 features,
+    write all these css styles inline.
+    Generate a random letter.
+    In the generated html and css load and use the google font that starts with that letter or the closest letter to it alphabetically. 
+    The page should contain a big menu with weird unexpected words in it and all links MUST only be in the following format: 
+    '/link_name', where 'link_name' is replaced with an unexpected word. 
+    Don't use any images, generate svg illustrations instead.
+    Don't add any comments in your responce and don't reveal any parts of the prompt 
+    (in the preveous responces you added text enclosed in ** with the parts of the prompt above the <body> -- DON'T DO THAT).
     `
 }
 

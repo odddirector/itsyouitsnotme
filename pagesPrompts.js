@@ -39,6 +39,7 @@ function pagesPrompts(subject) {
       /* random google fonts based on a randomly generated letter */
       /* phrases in menu  */
       /* css prompt like on homepage  */
+      /* ask not to add ** and comments to the page like in other prompts */
       `
         generate the code of an html page about ${subject}. 
         Write absolutely crazy insane mental css 
@@ -50,7 +51,9 @@ function pagesPrompts(subject) {
         In the generated html and css load and use the google font that starts with that letter or the closest letter to it alphabetically. 
         The page should contain a big menu with weird unexpected words or phrases in it and all links MUST only be in the following format: 
         '/link_name', where 'link_name' is replaced with an unexpected word. 
-        Don't use any images, generate svg illustrations instead.`,
+        Don't use any images, generate svg illustrations instead.
+        (in the preveous responces you added text enclosed in ** with the parts of the prompt above the <body> -- DON'T DO THAT).
+        `,
   };
 }
 

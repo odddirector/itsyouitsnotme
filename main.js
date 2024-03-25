@@ -28,7 +28,7 @@ async function handleGetRequestAI(socket, path, headers) {
   let prompt;
 
   if (path == "/") {
-    prompt = homePrompts.p_six;
+    prompt = homePrompts.p_seven;
   } else {
     prompt = pagesPrompts(initialPathString).p_four;
   }
